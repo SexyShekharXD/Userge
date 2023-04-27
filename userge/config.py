@@ -24,6 +24,7 @@ API_ID = environ.get("API_ID")
 API_HASH = secured_env("API_HASH")
 BOT_TOKEN = secured_env("BOT_TOKEN")
 SESSION_STRING = secured_env("SESSION_STRING")
+SESSION_STRING = secured_env("SESSION_STRING2")
 DB_URI = secured_env("DATABASE_URL")
 
 OWNER_ID = tuple(filter(lambda x: x, map(int, environ.get("OWNER_ID", "0").split())))
