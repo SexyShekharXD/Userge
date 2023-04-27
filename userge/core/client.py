@@ -268,9 +268,13 @@ class Userge(_AbstractUserge):
 
         kwargs['name'] = 'userge'
         kwargs['session_string'] = config.SESSION_STRING or None
+        kwargs['session_string'] = config.SESSION_STRING2 or None
         super().__init__(**kwargs)
 
         if config.SESSION_STRING:
+            self.storage.session_string = config.SESSION_STRING
+
+        if config.SESSION_STRING2:
             self.storage.session_string = config.SESSION_STRING
 
     @property
@@ -278,7 +282,7 @@ class Userge(_AbstractUserge):
         return RawClient.DUAL_MODE
 
     @property
-    def bot(self) -> Union['UsergeBot', 'Userge']:
+    def bot(self) -> Union['UsergeBot', 'Userge', 'Userge2']:
         """ returns usergebot """
         if self._bot is None:
             if config.BOT_TOKEN:
